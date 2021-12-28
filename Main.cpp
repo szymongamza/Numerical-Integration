@@ -12,7 +12,7 @@ using namespace std;
 
 //Methods description can be found https://en.wikipedia.org/wiki/Numerical_integration
 //"Numerical integration methods can generally be described as combining evaluations of the integrand to get an approximation to the integral."
-//Program below uses 3 methods: rectangular, trapezoidal and Simpson's. Each of them has different accuracy. They are tested below on 3 functions defined in Functions.cpp
+//Program below uses 5 methods: rectangular, trapezoidal, Simpson's(parabolic) and Gauss–Legendre quadrature with use 2 and 4 number of points. Each of these methods has different accuracy. They're tested on 3 functions defined in Functions.cpp. Result:
 
 int main()
 {
