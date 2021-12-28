@@ -1,0 +1,2 @@
+void DisplayResult(double c, double e, double d, double startSection, double endSection, double endSectionSin, int numberOfSections);
+void DisplayResult(double c, double e, double d, double startSection, double endSection, double endSectionSin);
