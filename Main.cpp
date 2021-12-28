@@ -4,6 +4,7 @@
 
 #include "DisplayResults.h"
 #include "Functions.h"
+#include "IntegrationMethods.h"
 
 
 using namespace std;
@@ -12,48 +13,6 @@ using namespace std;
 //Methods description can be found https://en.wikipedia.org/wiki/Numerical_integration
 //"Numerical integration methods can generally be described as combining evaluations of the integrand to get an approximation to the integral."
 //Program below uses 3 methods: rectangular, trapezoidal and Simpson's. Each of them has different accuracy. They are tested below on 3 functions defined in Functions.cpp
-
-double RectangularMethod(double a, double b, int n, double(*f)(double)) {
-	double s = (b - a) / n;
-	double result;
-	double sum = 0;
-	for (int i = 0; i < n; i++) {
-		sum = sum + f(a + (i * s) + (s / 2));
-	}
-	result = s * sum;
-	return result;
-}
-
-double TrapezoidalMethod(double a, double b, int n, double(*f)(double)) {
-	double s = (b - a) / n;
-	double sum = 0;
-	for (int i = 0; i < n; i++) {
-		sum = sum + ((((a + s * i) + s) - (a + s * i)) / 2) * (f(a + s * i) + f((a + s * i) + s));
-	}
-	return sum;
-}
-
-double ParabolicMethod(double a, double b, int n, double(*f)(double)) {
-	double s = (b - a) / n;
-	double sum = 0;
-	for (int i = 0; i < n; i++) {
-		sum = sum + ((((a + s * i) + s) - (a + s * i)) / 6) * ((f(a + s * i) + (4 * f(((a + s * i) + ((a + s * i) + s)) / 2)) + f((a + s * i) + s)));
-	}
-	return sum;
-}
-
-double GaussMethod(double a, double b, int n, double x[], double factor[], double(*f)(double)) {
-	double t;
-	double result;
-	double temp = 0;
-	for (int i = 0; i < n; i++) {
-		t = ((a + b) / 2) + ((b - a) / 2) * x[i];
-		temp = temp + factor[i] * f(t);
-	}
-	result = ((b - a) / 2) * temp;
-	return result;
-}
-
 
 int main()
 {
